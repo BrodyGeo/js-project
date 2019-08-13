@@ -3,11 +3,11 @@ import Axios from "axios";
 
 function Show(props) {
 
-  const [movie, setMovie] = useState({});
+  const [beer, setBeer] = useState({});
 
   useEffect(() => {
-    Axios.get(`/api/movies/${props.match.params.id}`)
-      .then(result => setMovie(result.data))
+    Axios.get(`/api/beers/${props.match.params.id}`)
+      .then(result => setBeer(result.data))
       .catch(err => console.error(err));
   }, [props]);
 
@@ -15,15 +15,15 @@ function Show(props) {
     <div className="container">
       
       <header>
-        <h1>{movie.title}</h1>
+        <h1>{beer.name}</h1>
       </header>
 
       <h3>Description</h3>
-      <div>{movie.description}</div>
+      <div>{beer.description}</div>
       <h3>Price</h3>
-      <div>{movie.price}</div>
+      <div>{beer.price}</div>
       <h3>Rating</h3>
-      <div>{movie.rating}</div>
+      <div>{beer.rating}</div>
 
     </div>
   );

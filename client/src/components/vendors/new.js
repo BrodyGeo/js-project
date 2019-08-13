@@ -21,50 +21,40 @@ function New() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    Axios.post("/api/movies", {
-        title: inputs.title,
-        description: inputs.description,
-        price: inputs.price,
+    Axios.post("/api/vendors", {
+        company: inputs.company,
+        location: inputs.location,
         rating: inputs.rating
     })
       .then(resp => setRedirect(true))
       .catch(err => console.log(err));
   }
 
-  if (redirect) return <Redirect to="/" />;
+  if (redirect) return <Redirect to="/vendor" />;
 
   return (
     <div className="container">
       <header>
-        <h1>New Movie</h1>
+        <h1>New Vendor</h1>
       </header>
 
       <div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Title</label>
+            <label>Company</label>
             <input
               className="form-control"
-              name="title"
+              name="company"
               required="required"
               onChange={handleInputChange}
             />
           </div>
 
           <div className="form-group">
-            <label>Description</label>
+            <label>Location</label>
             <textarea
               className="form-control"
-              name="description"
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Price</label>
-            <textarea
-              className="form-control"
-              name="price"
+              name="location"
               onChange={handleInputChange}
             />
           </div>

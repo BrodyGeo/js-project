@@ -3,41 +3,39 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 
 function Index() {
-  const [movies, setMovies] = useState([]);
+  const [vendors, setVendors] = useState([]);
 
   useEffect(() => {
-    Axios.get("/api/movies")
-      .then(result => setMovies(result.data)) // Our blogs are under the property .data
+    Axios.get("/api/vendors")
+      .then(result => setVendors(result.data))
       .catch(err => console.error(err));
   }, []);
 
   return (
     <div className="container">
       <header>
-        <h1>All Movies</h1>
+        <h1>All Vendors</h1>
       </header>
 
       <div>
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Price</th>
+              <th>Company</th>
+              <th>Location</th>
               <th>Rating</th>
             </tr>
           </thead>
 
           <tbody>
-            {movies.map(movie => (
-              <tr key={movie._id}>
+            {vendors.map(vendor => (
+              <tr key={vendor._id}>
+                <td>{vendor.company}</td>
+                <td>{vendor.location}</td>
+                <td>{vendor.rating}</td>
                 <td>
-                  <Link to={`/${movie._id}`}>{movie.title}</Link>
-                </td>
-                <td>{movie.price}</td>
-                <td>{movie.rating}</td>
-                <td>
-                  <Link to={`/${movie._id}/edit`}>Edit</Link>|
-                  <Link to={`/${movie._id}/destroy`}>Delete</Link>
+                  <Link to={`/vendor/${vendor._id}/edit`}>Edit</Link>|
+                  <Link to={`/vendor/${vendor._id}/destroy`}>Delete</Link>
                 </td>
               </tr>
             ))}

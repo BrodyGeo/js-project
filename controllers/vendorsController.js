@@ -1,44 +1,44 @@
-const Movie = require('../models/movie');
+const Vendor = require('../models/vendor');
 
 exports.index = (req, res) => {
-  Movie.find()
-    .then(movies => res.status(200).json(movies))
+  Vendor.find()
+    .then(vendors => res.status(200).json(vendors))
     .catch(err => res.status(404).send(err));
 };
 
 
 exports.show = (req, res) => {
 
-  Movie.findOne({
+  Vendor.findOne({
     _id: req.params.id
   })
-    .then(movie => res.status(200).json(movie))
+    .then(vendor => res.status(200).json(vendor))
     .catch(err => res.status(404).json(err));
 };
 
 
 exports.create = async (req, res) => {
-  Movie.create(req.body)
-    .then(() => res.status(200).json({ success: "New movie created" }))
+  Vendor.create(req.body)
+    .then(() => res.status(200).json({ success: "New vendor created" }))
     .catch(err => res.status(404).json(err));
 };
 
 
 exports.update = (req, res) => {
-  Movie.updateOne({
+  Vendor.updateOne({
     _id: req.body.id
   }, req.body, {
       runValidators: true
     })
-    .then(() => res.status(200).json({ success: "Movie updated" }))
+    .then(() => res.status(200).json({ success: "Vendor updated" }))
     .catch(err => res.status(404).json(err));
 };
 
 
 exports.destroy = (req, res) => {
-  Movie.deleteOne({
+  Vendor.deleteOne({
     _id: req.body.id
   })
-    .then(() => res.status(200).json({ success: "Movie deleted" }))
+    .then(() => res.status(200).json({ success: "Vendor deleted" }))
     .catch(err => res.status(404).json(err));
 };

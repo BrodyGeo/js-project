@@ -2,17 +2,13 @@
 const mongoose = require(`mongoose`);
 
 // Our schema
-const MovieSchema = new mongoose.Schema({
-  title: {
+const VendorSchema = new mongoose.Schema({
+  company: {
     type: String,
     required: true
   },
-  description: {
+  location: {
     type: String,
-    required: false
-  },
-  price: {
-    type: Number,
     required: false
   },
   rating: {
@@ -24,5 +20,4 @@ const MovieSchema = new mongoose.Schema({
     timestamps: true
   });
 
-// Exporting our Movie model
-module.exports = mongoose.model('Movie', MovieSchema);
+module.exports = mongoose.model('Vendor', VendorSchema);

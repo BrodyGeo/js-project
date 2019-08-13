@@ -7,7 +7,7 @@ function Edit(props) {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    Axios.get(`/api/movies/${props.match.params.id}`)
+    Axios.get(`/api/beers/${props.match.params.id}`)
       .then(result => setInputs(result.data))
       .catch(err => console.error(err));
   }, [props]);
@@ -15,7 +15,7 @@ function Edit(props) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    Axios.post("/api/movies/update", {
+    Axios.post("/api/beers/update", {
       id: props.match.params.id,
         title: inputs.title,
         description: inputs.description,
@@ -35,23 +35,23 @@ function Edit(props) {
     }));
   }
 
-  if (redirect) return <Redirect to="/" />;
+  if (redirect) return <Redirect to="/beer" />;
 
   return (
     <div className="container">
       <header>
-        <h1>Edit Movie</h1>
+        <h1>Edit Beer</h1>
       </header>
       <div>
-        <form action="/" method="POST" onSubmit={handleSubmit}>
+        <form action="/beer" method="POST" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Title</label>
+            <label>Name</label>
             <input
               className="form-control"
-              name="title"
+              name="name"
               required="required"
               onChange={handleInputChange}
-              defaultValue={inputs.title}
+              defaultValue={inputs.name}
             />
           </div>
 

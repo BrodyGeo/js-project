@@ -4,12 +4,12 @@ import Axios from "axios";
 
 function Destroy(props) {
   useEffect(() => {
-    Axios.post("/api/movies/destroy", {
+    Axios.post("/api/vendors/destroy", {
       id: props.match.params.id
     });
   }, [props]);
 
-  return <Redirect to="/" />;
+  return <Redirect to="/vendor" />;
 }
 
 export default Destroy;

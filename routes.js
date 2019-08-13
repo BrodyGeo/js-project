@@ -2,12 +2,11 @@
 const express = require('express');
 const app = express();
 
-// Importing the pageRoutes
-const movieRoutes = require('./routes/movies');
+const beerRoutes = require('./routes/beers.js');
+const vendorRoutes = require('./routes/vendors.js');
 
-// Registering our pageRoutes
-// app.use('/', pageRoutes);
-app.use('/movies', movieRoutes);
+app.use('/beers', beerRoutes);
+app.use('/vendors', vendorRoutes);
 
 // Exporting the changes
 module.exports = app;

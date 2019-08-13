@@ -1,20 +1,30 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import MovieIndex from "./movies/index";
-import MovieShow from "./movies/show";
-import MovieNew from "./movies/new";
-import MovieEdit from "./movies/edit";
-import MovieDestroy from "./movies/destroy";
+import BeerIndex from "./beers/index";
+import BeerShow from "./beers/show";
+import BeerNew from "./beers/new";
+import BeerEdit from "./beers/edit";
+import BeerDestroy from "./beers/destroy";
+
+import VendorIndex from "./vendors/index";
+import VendorNew from "./vendors/new";
+import VendorEdit from "./vendors/edit";
+import VendorDestroy from "./vendors/destroy";
 
 function Routes() {
   return (
     <Switch>
-      <Route exact path="/" component={MovieIndex} />
-      <Route exact path="/new" component={MovieNew} />
-      <Route exact path="/:id" component={MovieShow} />
-      <Route exact path="/:id/edit" component={MovieEdit} />
-      <Route exact path="/:id/destroy" component={MovieDestroy} />
+      <Route exact path="/beer/" component={BeerIndex} />
+      <Route exact path="/beer/new" component={BeerNew} />
+      <Route exact path="/beer/:id" component={BeerShow} />
+      <Route exact path="/beer/:id/edit" component={BeerEdit} />
+      <Route exact path="/beer/:id/destroy" component={BeerDestroy} />
+
+      <Route exact path="/vendor/" component={VendorIndex} />
+      <Route exact path="/vendor/new" component={VendorNew} />
+      <Route exact path="/vendor/:id/edit" component={VendorEdit} />
+      <Route exact path="/vendor/:id/destroy" component={VendorDestroy} />
     </Switch>
   );
 }
