@@ -2,21 +2,3 @@
 .flash {
   margin-top: 60px;
 }
-nav {
-  background-color: black;
-}
-.navbar {
-  background-color: #0393FE;
-}
-nav a {
-  color: white;
-}
-
-.navbar-brand {
-  color: white;
-}
-
-body {
-  background-color: #00518A;
-  color: white;
-}
